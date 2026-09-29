@@ -1,0 +1,5 @@
+   autobid_config.php
+   **/autobid_config.php
+   *.bak*
+   .DS_Store
+   Thumbs.db
