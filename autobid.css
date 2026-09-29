@@ -1,0 +1,242 @@
+/* 검색광고 자동입찰 — 관리자 화면 스타일 v2 (애플·토스 느낌: 밝은 회색 바탕 + 흰 카드 + 큰 숫자)
+ * admin_extend 레이아웃 안에 들어가도 겹치지 않도록 #autobid-app 아래에만 적용합니다. */
+#autobid-app {
+  --bg: #f2f4f6;
+  --card: #ffffff;
+  --soft: #f9fafb;
+  --line: #e5e8eb;
+  --line2: #f2f4f6;
+  --t1: #191f28;
+  --t2: #333d4b;
+  --t3: #4e5968;
+  --t4: #8b95a1;
+  --t5: #b0b8c1;
+  --blue: #3182f6;
+  --blue-d: #1b64da;
+  --blue-s: #e8f3ff;
+  --red: #f04452;
+  --red-t: #e42939;
+  --red-s: #ffeeee;
+  --orange-t: #e06c00;
+  --orange-s: #fff3e0;
+  --green: #03b26c;
+  --green-s: #e5f8ef;
+  --c-ss: #03c75a;     /* 네이버 신성 */
+  --c-ft: #9be3bd;     /* 네이버 포에이테크 */
+  --c-gg: #4c8bf5;     /* 구글 */
+  --r-card: 20px;
+  --r-ctl: 12px;
+  --shadow: 0 1px 3px rgba(0, 23, 51, .04), 0 6px 16px rgba(0, 23, 51, .04);
+  font-family: Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--t1);
+  background: var(--bg);
+  min-height: 100vh;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: -0.01em;
+}
+#autobid-app *, #autobid-app *::before, #autobid-app *::after { box-sizing: inherit; }
+#autobid-app button, #autobid-app input, #autobid-app select { font-family: inherit; letter-spacing: inherit; }
+
+/* ───── 머리글 · 탭 ───── */
+#autobid-app .hd { position: sticky; top: 0; z-index: 20; background: rgba(242, 244, 246, .82); -webkit-backdrop-filter: saturate(180%) blur(20px); backdrop-filter: saturate(180%) blur(20px); }
+#autobid-app .hd-in { max-width: 1160px; margin: 0 auto; padding: 18px 24px 12px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+#autobid-app .hd h1 { margin: 0; font-size: 22px; font-weight: 700; letter-spacing: -0.02em; }
+#autobid-app .hd .sp { flex: 1; }
+#autobid-app .seg { display: inline-flex; background: #e5e8eb; border-radius: var(--r-ctl); padding: 3px; gap: 2px; overflow-x: auto; max-width: 100%; }
+#autobid-app .seg button { border: 0; background: transparent; color: var(--t3); font-size: 14px; font-weight: 600; padding: 8px 14px; border-radius: 9px; cursor: pointer; white-space: nowrap; transition: background .15s, color .15s; }
+#autobid-app .seg button:hover { color: var(--t1); }
+#autobid-app .seg button.on { background: #fff; color: var(--t1); box-shadow: 0 1px 3px rgba(0, 0, 0, .08); }
+#autobid-app .seg.sm button { padding: 6px 12px; font-size: 13px; }
+#autobid-app .bar2 { height: 10px; border-radius: 999px; background: var(--c-gg); opacity: .9; overflow: hidden; }
+#autobid-app .bar2 > span { display: block; height: 100%; background: var(--c-ss); border-radius: 999px 0 0 999px; }
+#autobid-app .kpi .v .chip { font-size: 11px; padding: 1px 7px; vertical-align: middle; }
+#autobid-app .seg .cnt { display: inline-block; min-width: 18px; padding: 0 5px; margin-left: 4px; border-radius: 9px; background: var(--red); color: #fff; font-size: 11px; line-height: 18px; text-align: center; }
+#autobid-app .tabs { max-width: 1160px; margin: 0 auto; padding: 0 24px 14px; }
+
+/* ───── 본문 ───── */
+#autobid-app .main { max-width: 1160px; margin: 0 auto; padding: 4px 24px 60px; }
+#autobid-app .grid { display: grid; gap: 16px; }
+#autobid-app .g3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+#autobid-app .g2 { grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); }
+@media (max-width: 960px) { #autobid-app .g3, #autobid-app .g2 { grid-template-columns: 1fr; } }
+#autobid-app .card { background: var(--card); border-radius: var(--r-card); padding: 24px; box-shadow: var(--shadow); min-width: 0; }
+#autobid-app .card + .card, #autobid-app .grid + .card, #autobid-app .card + .grid, #autobid-app .grid + .grid { margin-top: 16px; }
+#autobid-app .card.tight { padding: 20px; }
+#autobid-app .grid > .card { margin-top: 0; }
+#autobid-app .ttl { display: flex; align-items: center; gap: 8px; margin: 0 0 4px; font-size: 18px; font-weight: 700; letter-spacing: -0.02em; }
+#autobid-app .ttl .n { color: var(--blue); }
+#autobid-app .ttl .sp { flex: 1; }
+#autobid-app .desc { margin: 0 0 16px; color: var(--t4); font-size: 13px; }
+#autobid-app .lbl { color: var(--t3); font-size: 14px; font-weight: 500; }
+#autobid-app .big { font-size: 34px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.25; margin: 6px 0 10px; font-variant-numeric: tabular-nums; }
+#autobid-app .mid { font-size: 24px; font-weight: 700; letter-spacing: -0.02em; margin: 4px 0 8px; font-variant-numeric: tabular-nums; }
+#autobid-app .sub { color: var(--t4); font-size: 13px; }
+#autobid-app .row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+#autobid-app .row.between { justify-content: space-between; }
+#autobid-app .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; vertical-align: middle; }
+
+/* 큰 요약(히어로) */
+#autobid-app .hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 16px; align-items: end; }
+@media (max-width: 720px) { #autobid-app .hero { grid-template-columns: 1fr; } }
+#autobid-app .hero .big { font-size: 44px; margin: 4px 0 12px; }
+#autobid-app .kpis { display: flex; gap: 28px; flex-wrap: wrap; }
+#autobid-app .kpi .k { color: var(--t4); font-size: 13px; }
+#autobid-app .kpi .v { font-size: 18px; font-weight: 700; font-variant-numeric: tabular-nums; }
+
+/* 칩·배지 */
+#autobid-app .chip { display: inline-flex; align-items: center; gap: 4px; padding: 3px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; background: var(--line2); color: var(--t3); white-space: nowrap; }
+#autobid-app .chip.up { background: var(--red-s); color: var(--red-t); }
+#autobid-app .chip.down { background: var(--blue-s); color: var(--blue-d); }
+#autobid-app .chip.blue { background: var(--blue-s); color: var(--blue-d); }
+#autobid-app .chip.red { background: var(--red-s); color: var(--red-t); }
+#autobid-app .chip.orange { background: var(--orange-s); color: var(--orange-t); }
+#autobid-app .chip.green { background: var(--green-s); color: var(--green); }
+#autobid-app .chip.gray { background: var(--line2); color: var(--t3); }
+
+/* 버튼·입력 */
+#autobid-app .btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; border: 0; background: var(--line2); color: var(--t2); padding: 10px 16px; border-radius: var(--r-ctl); font-size: 14px; font-weight: 600; cursor: pointer; transition: background .15s, transform .05s; white-space: nowrap; }
+#autobid-app .btn:hover { background: #e5e8eb; }
+#autobid-app .btn:active { transform: scale(.98); }
+#autobid-app .btn.pri { background: var(--blue); color: #fff; }
+#autobid-app .btn.pri:hover { background: var(--blue-d); }
+#autobid-app .btn.ghost { background: transparent; color: var(--blue); padding: 8px 10px; }
+#autobid-app .btn.ghost:hover { background: var(--blue-s); }
+#autobid-app .btn.sm { padding: 6px 10px; font-size: 13px; border-radius: 10px; }
+#autobid-app .btn.wide { width: 100%; padding: 14px; font-size: 16px; }
+#autobid-app .btn:disabled { opacity: .45; cursor: default; transform: none; }
+#autobid-app input[type=text], #autobid-app input[type=number], #autobid-app input[type=search], #autobid-app select {
+  border: 1px solid transparent; background: var(--line2); border-radius: var(--r-ctl); padding: 11px 14px; font-size: 15px; color: var(--t1); outline: none; transition: border-color .15s, background .15s; min-width: 0;
+}
+#autobid-app input:focus, #autobid-app select:focus { border-color: var(--blue); background: #fff; }
+#autobid-app input.sm, #autobid-app select.sm { padding: 6px 8px; font-size: 13px; border-radius: 9px; width: 92px; }
+#autobid-app input::placeholder { color: var(--t5); }
+
+/* 표 */
+#autobid-app .tbl-wrap { overflow-x: auto; margin: 0 -8px; }
+#autobid-app table { border-collapse: collapse; width: 100%; font-size: 14px; }
+#autobid-app th { text-align: left; color: var(--t4); font-weight: 500; font-size: 12px; padding: 8px; border-bottom: 1px solid var(--line); white-space: nowrap; position: sticky; top: 0; background: #fff; }
+#autobid-app td { padding: 11px 8px; border-bottom: 1px solid var(--line2); white-space: nowrap; color: var(--t2); }
+#autobid-app tr:last-child td { border-bottom: 0; }
+#autobid-app td.num, #autobid-app th.num { text-align: right; font-variant-numeric: tabular-nums; }
+#autobid-app td .s { display: block; color: var(--t4); font-size: 12px; }
+#autobid-app td b { color: var(--t1); font-weight: 600; }
+#autobid-app tr.go { cursor: pointer; }
+#autobid-app tr.go:hover td { background: var(--soft); }
+#autobid-app tr.go td:first-child { border-radius: 10px 0 0 10px; }
+#autobid-app tr.go td:last-child { border-radius: 0 10px 10px 0; }
+
+/* 검토 요청 목록 */
+#autobid-app .alerts { display: flex; flex-direction: column; }
+#autobid-app .al { padding: 16px 0; border-top: 1px solid var(--line2); }
+#autobid-app .al:first-child { border-top: 0; padding-top: 4px; }
+#autobid-app .al-h { display: flex; align-items: center; gap: 8px; font-size: 16px; font-weight: 600; color: var(--t1); }
+#autobid-app .al-e { color: var(--t3); font-size: 14px; margin-top: 6px; }
+#autobid-app .al-s { margin-top: 10px; padding: 12px 14px; background: var(--soft); border-radius: 12px; color: var(--t2); font-size: 14px; }
+#autobid-app .al-s::before { content: "제안 "; font-weight: 700; color: var(--blue); }
+#autobid-app .al .more { margin-top: 8px; }
+#autobid-app .al .tbl-wrap { margin-top: 8px; }
+
+/* 막대그래프 */
+#autobid-app .chart { position: relative; }
+#autobid-app .chart svg { display: block; width: 100%; height: auto; overflow: visible; }
+#autobid-app .chart svg text { font-size: 11px; fill: var(--t4); font-family: inherit; }
+#autobid-app .chart .bar { cursor: pointer; }
+#autobid-app .chart .bar:hover rect.hit { fill: rgba(49, 130, 246, .06); }
+#autobid-app .legend { display: flex; gap: 14px; flex-wrap: wrap; font-size: 12px; color: var(--t3); margin-top: 10px; }
+#autobid-app .tip { position: absolute; pointer-events: none; background: #191f28; color: #fff; border-radius: 12px; padding: 10px 12px; font-size: 12px; line-height: 1.6; white-space: nowrap; transform: translate(-50%, -100%); opacity: 0; transition: opacity .12s; z-index: 5; }
+#autobid-app .tip b { font-size: 13px; }
+
+/* 목록형 수치(자동입찰 카드) */
+#autobid-app .kv { display: flex; flex-direction: column; }
+#autobid-app .kv > div { display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--line2); font-size: 14px; }
+#autobid-app .kv > div:last-child { border-bottom: 0; }
+#autobid-app .kv span:first-child { color: var(--t3); }
+#autobid-app .kv span:last-child { color: var(--t1); font-weight: 600; text-align: right; font-variant-numeric: tabular-nums; }
+
+/* 검색 */
+#autobid-app .search { position: relative; margin-bottom: 16px; }
+#autobid-app .search input { width: 100%; padding: 16px 18px 16px 48px; font-size: 17px; border-radius: 16px; }
+#autobid-app .search svg { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); width: 20px; height: 20px; color: var(--t4); }
+
+/* 실행 버튼 타일 */
+#autobid-app .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; }
+#autobid-app .tile { border: 0; background: var(--soft); border-radius: 16px; padding: 16px; text-align: left; cursor: pointer; transition: background .15s; color: var(--t1); }
+#autobid-app .tile:hover { background: var(--blue-s); }
+#autobid-app .tile b { display: block; font-size: 15px; }
+#autobid-app .tile span { display: block; color: var(--t4); font-size: 12px; margin-top: 2px; }
+#autobid-app .tile:disabled { opacity: .5; cursor: default; }
+
+/* 오른쪽 상세 창 (키워드) */
+#autobid-app .ov { position: fixed; inset: 0; background: rgba(0, 0, 0, .28); opacity: 0; pointer-events: none; transition: opacity .2s; z-index: 40; }
+#autobid-app .ov.on { opacity: 1; pointer-events: auto; }
+#autobid-app .dr { position: fixed; top: 0; right: 0; bottom: 0; width: min(600px, 100vw); background: var(--bg); z-index: 41; transform: translateX(100%); transition: transform .28s cubic-bezier(.2, .8, .2, 1); display: flex; flex-direction: column; box-shadow: -12px 0 40px rgba(0, 0, 0, .12); }
+#autobid-app .dr.on { transform: none; }
+#autobid-app .dr-h { display: flex; align-items: flex-start; gap: 12px; padding: 22px 24px 14px; }
+#autobid-app .dr-h h2 { margin: 0; font-size: 22px; font-weight: 700; letter-spacing: -0.02em; word-break: break-all; }
+#autobid-app .dr-h .sub { margin-top: 4px; }
+#autobid-app .dr-h .x { margin-left: auto; border: 0; background: #e5e8eb; width: 34px; height: 34px; border-radius: 50%; cursor: pointer; font-size: 18px; color: var(--t3); flex: none; }
+#autobid-app .dr-b { overflow-y: auto; padding: 0 24px 32px; flex: 1; }
+#autobid-app .dr-b .card { padding: 20px; }
+#autobid-app .stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+#autobid-app .stat { background: var(--card); border-radius: 16px; padding: 14px 16px; box-shadow: var(--shadow); }
+#autobid-app .stat .k { color: var(--t4); font-size: 12px; }
+#autobid-app .stat .v { font-size: 20px; font-weight: 700; margin-top: 2px; font-variant-numeric: tabular-nums; }
+#autobid-app .stat .s { color: var(--t4); font-size: 12px; }
+
+/* 관리 방식 고르기 */
+#autobid-app .opts { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 12px 0 16px; }
+#autobid-app .opt { border: 1.5px solid var(--line); border-radius: 14px; padding: 12px 14px; cursor: pointer; transition: border-color .15s, background .15s; background: #fff; }
+#autobid-app .opt b { display: block; font-size: 15px; }
+#autobid-app .opt small { display: block; color: var(--t4); font-size: 12px; margin-top: 2px; }
+#autobid-app .opt.on { border-color: var(--blue); background: var(--blue-s); }
+#autobid-app .fld { display: grid; grid-template-columns: 100px 1fr; align-items: center; gap: 10px; margin-bottom: 10px; }
+#autobid-app .fld > span { color: var(--t3); font-size: 14px; }
+#autobid-app .fld .in { display: flex; align-items: center; gap: 8px; }
+#autobid-app .fld input, #autobid-app .fld select { width: 100%; max-width: 220px; }
+
+/* 입장 코드 */
+#autobid-app .pin-ov { position: fixed; inset: 0; background: var(--bg); z-index: 80; display: flex; align-items: center; justify-content: center; padding: 16px; }
+#autobid-app .pin-card { background: #fff; border-radius: 24px; padding: 32px 28px 24px; width: min(360px, 100%); text-align: center; box-shadow: var(--shadow); }
+#autobid-app .pin-ic { font-size: 30px; }
+#autobid-app .pin-card h2 { margin: 10px 0 4px; font-size: 22px; font-weight: 700; }
+#autobid-app .pin-card input { width: 100%; margin: 20px 0 6px; text-align: center; font-size: 28px; letter-spacing: .5em; padding: 14px; border-radius: 16px; }
+#autobid-app .pin-msg { min-height: 20px; color: var(--red-t); font-size: 13px; margin-bottom: 10px; }
+
+/* 알림(토스트)·확인 창 */
+#autobid-app .toast { position: fixed; left: 50%; bottom: 32px; transform: translate(-50%, 20px); background: #191f28; color: #fff; padding: 12px 18px; border-radius: 14px; font-size: 14px; font-weight: 500; opacity: 0; transition: opacity .2s, transform .2s; z-index: 60; max-width: calc(100vw - 32px); box-shadow: 0 8px 24px rgba(0, 0, 0, .2); }
+#autobid-app .toast.on { opacity: 1; transform: translate(-50%, 0); }
+#autobid-app .toast.err { background: var(--red-t); }
+#autobid-app .modal-ov { position: fixed; inset: 0; background: rgba(0, 0, 0, .36); display: flex; align-items: center; justify-content: center; z-index: 70; padding: 16px; }
+#autobid-app .modal { background: #fff; border-radius: 24px; padding: 26px 24px 20px; width: min(400px, 100%); box-shadow: 0 20px 60px rgba(0, 0, 0, .2); animation: ab-pop .18s ease-out; }
+#autobid-app .modal h3 { margin: 0 0 8px; font-size: 19px; font-weight: 700; }
+#autobid-app .modal p { margin: 0 0 20px; color: var(--t3); font-size: 15px; white-space: pre-line; }
+#autobid-app .modal .row { flex-wrap: nowrap; }
+#autobid-app .modal .btn { flex: 1; padding: 14px; font-size: 15px; }
+@keyframes ab-pop { from { transform: scale(.96); opacity: 0; } to { transform: none; opacity: 1; } }
+
+/* 안내·빈 칸·불러오는 중 */
+#autobid-app .note { padding: 12px 14px; border-radius: 12px; font-size: 14px; margin: 10px 0; }
+#autobid-app .note.info { background: var(--blue-s); color: var(--blue-d); }
+#autobid-app .note.err { background: var(--red-s); color: var(--red-t); }
+#autobid-app .note.warn { background: var(--orange-s); color: var(--orange-t); }
+#autobid-app .empty { color: var(--t4); padding: 28px 8px; text-align: center; font-size: 14px; }
+#autobid-app .sk { background: linear-gradient(90deg, #eef0f3 25%, #f6f7f9 50%, #eef0f3 75%); background-size: 200% 100%; animation: ab-sh 1.2s infinite; border-radius: 10px; }
+@keyframes ab-sh { from { background-position: 200% 0; } to { background-position: -200% 0; } }
+#autobid-app .mode-live { background: var(--green-s); color: var(--green); }
+#autobid-app .mode-test { background: var(--orange-s); color: var(--orange-t); }
+#autobid-app .foot { color: var(--t5); font-size: 12px; text-align: center; margin-top: 28px; }
+
+@media (max-width: 640px) {
+  #autobid-app .hd-in, #autobid-app .tabs, #autobid-app .main { padding-left: 16px; padding-right: 16px; }
+  #autobid-app .card { padding: 20px 18px; }
+  #autobid-app .hero .big { font-size: 36px; }
+  #autobid-app .hd-in > .sub { display: none; }
+  #autobid-app .opts { grid-template-columns: 1fr; }
+  #autobid-app .fld { grid-template-columns: 1fr; gap: 4px; }
+}
+#autobid-app .more-wrap { margin-top: 12px; }
+#autobid-app td.acts { white-space: nowrap; text-align: right; }
+#autobid-app .al-a { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
