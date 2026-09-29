@@ -65,15 +65,19 @@
     if (pinGet()) q.push('pin=' + encodeURIComponent(pinGet()));
     Object.keys(params || {}).forEach(function (k) { q.push(encodeURIComponent(k) + '=' + encodeURIComponent(params[k])); });
     if (!keyGet()) return needKey('');
-    return fetch(API + '?' + q.join('&'), { credentials: 'omit', headers: { 'X-Autobid-Key': keyGet() } }).then(parse);
+    return fetch(API + '?' + q.join('&'), { credentials: 'omit', headers: { 'X-Autobid-Key': keyGet() } }).then(parse, netFail);
   }
   function post(action, body) {
     if (!keyGet()) return needKey('');
     return fetch(API + '?action=' + encodeURIComponent(action), {
       method: 'POST', credentials: 'omit', headers: { 'Content-Type': 'application/json', 'X-Autobid-Key': keyGet() }, body: JSON.stringify(Object.assign({}, body || {}, pinGet() ? { pin: pinGet() } : {}))
-    }).then(parse);
+    }).then(parse, netFail);
   }
   function needKey(msg) { showPin(msg, true); var e = new Error(msg || '접속 키가 필요합니다'); e.pin = true; return Promise.reject(e); }
+  function netFail(e) {
+    var m = '퍼스트몰 중계(' + API + ')에 연결하지 못했습니다. ① 퍼스트몰 서버에 cus_autobid_api.php가 올라갔는지 ② ' + API.replace(/\/call$/, '/check') + ' 가 열리는지 확인해 주세요. (' + (e && e.message) + ')';
+    throw new Error(m);
+  }
   function parse(r) {
     return r.json().catch(function () { throw new Error('서버 응답을 읽지 못했습니다 (' + r.status + ')'); })
       .then(function (j) {
